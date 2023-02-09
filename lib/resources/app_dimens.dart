@@ -10,6 +10,7 @@ class AppDimens {
   static double lButtonWidth = 199.0.w;
   static double lIconCircleDimens = 92.0.h;
   static double lIconCircleSmallDimens = 60.0.h;
+  static double lIconCircleSmallWidth = 60.0.w;
   static double lIconSquareContainerHeight = 115.0.h;
   static double lIconSquareContainerWidth = 108.0.w;
   static double lNavBarHeight = 96.0.h;
@@ -42,6 +43,7 @@ class AppDimens {
   static const double lPadding580 = 580.0;
   static const double lPadding125 = 125.0;
   static const double lPadding100 = 100.0;
+  static const double lPadding80 = 80.0;
   static const double lPadding70 = 70.0;
   static const double lPadding60 = 60.0;
   static const double lPadding48 = 48.0;

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:livescore/bottom_navbar/bottom_navbar_outlet.dart';
 import 'package:livescore/resources/app_colors.dart';
 import 'package:livescore/resources/app_dimens.dart';
 import 'package:livescore/resources/app_font.dart';
 import 'package:livescore/resources/app_strings.dart';
-import 'package:livescore/screens/home_screen.dart';
 import 'package:livescore/screens/walk_through_data.dart';
 
 import '../resources/widgets/custom_btn.dart';
-import 'bottom_navbar.dart';
 
 class WalkThroughScreen extends StatefulWidget {
   const WalkThroughScreen({super.key});
@@ -95,9 +94,9 @@ Positioned _continueAndSkipBtn(BuildContext context) {
               fontSize: AppDimens.lSubTitle16,
             ),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(
+              Navigator.pushReplacement(context, MaterialPageRoute(
                 builder: (context) {
-                  return const LiveScoreBottomNavbar();
+                  return navBarOutlet();
                 },
               ));
             }),

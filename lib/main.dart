@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:livescore/resources/app_colors.dart';
 import 'package:livescore/screens/splash_screen.dart';
 
 void main() {
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
           title: 'el gol espacio',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            primarySwatch: AppColors.lPrimaryColor,
+            primarySwatch: Colors.blue,
+            scaffoldBackgroundColor: AppColors.lPrimaryColor,
           ),
           home: const SplashScreen(),
         );

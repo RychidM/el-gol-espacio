@@ -31,7 +31,6 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Stack get _buildBody {
-
     return Stack(
       children: [
         _mbappeBg,

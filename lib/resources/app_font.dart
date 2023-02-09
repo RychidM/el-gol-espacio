@@ -12,6 +12,7 @@ class LivescoreText extends StatelessWidget {
   final TextAlign? textAlign;
   final String text;
   final FontWeight? fontWeight;
+  final TextOverflow? overflow;
   const LivescoreText(
       {super.key,
       required this.text,
@@ -21,7 +22,7 @@ class LivescoreText extends StatelessWidget {
       this.letterSpacing,
       this.wordSpacing,
       this.textStyle,
-      this.textAlign, this.fontWeight});
+      this.textAlign, this.fontWeight, this.overflow});
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +38,7 @@ class LivescoreText extends StatelessWidget {
         fontWeight: fontWeight,
       ),
       textAlign: textAlign,
+      overflow: overflow,
     );
   }
 }

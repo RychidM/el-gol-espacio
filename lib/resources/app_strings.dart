@@ -33,7 +33,7 @@ class AppStrings {
   static const lAVilla = "Aston Villa";
   static const lLPool = "Liverpool";
   static const lArsenal = "Arsenal";
-  static const lManU = "Manchester United";
+  static const lManU = "Man United";
   static const lManCity = "Manchester City";
   static const lSpurs = "Totenham";
   static const lSouthampton = "Southampton";
@@ -75,4 +75,13 @@ class AppStrings {
   static const lAway = "Away";
   static const lTeam = "Team";
   static const lCancel = "Cancel";
+  static const lAtletico = "Atletico Madrid";
+  static const lVillareal = "Villareal";
+  static const lBetis = "Real Betis";
+  static const lValencia = "Valencia CF";
+  static const lSevilla = "Sevilla";
+  static const lGranada = "Granada";
+  static const lLevante = "Levante";
+  static const lCelta = "Celta de Vigo";
+  static const lSociedad = "Real Sociedad";
 }

@@ -24,14 +24,13 @@ class TeamsContainer extends StatelessWidget {
             top: AppDimens.lPadding10.h,
             left: AppDimens.lPadding48.w,
             child: Container(
+              padding: EdgeInsets.all(AppDimens.lPadding10.h),
               height: AppDimens.lPadding40.h + 2.h,
               width: AppDimens.lPadding40.w + 2.w,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(AppDimens.lPadding40.r),
-                  color: AppColors.lSecondaryColor),
+              decoration: const BoxDecoration(
+                  shape: BoxShape.circle, color: AppColors.lSecondaryColor),
               child: Image.asset(
                 awayTeam,
-                scale: 4,
               ),
             ),
           ),
@@ -39,15 +38,15 @@ class TeamsContainer extends StatelessWidget {
             top: AppDimens.lPadding10 - 3.h,
             left: AppDimens.lPadding10 - 3.w,
             child: Container(
+              padding: EdgeInsets.all(AppDimens.lPadding10.h),
               height: AppDimens.lPadding48.h,
               width: AppDimens.lPadding48.w,
               decoration: BoxDecoration(
                   border: Border.all(width: 3, color: AppColors.lGrey20),
-                  borderRadius: BorderRadius.circular(AppDimens.lPadding40.r),
+                  shape: BoxShape.circle,
                   color: AppColors.lSecondaryColor),
               child: Image.asset(
                 homeTeam,
-                scale: 4,
               ),
             ),
           ),

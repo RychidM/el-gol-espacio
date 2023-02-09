@@ -39,6 +39,10 @@ dependencies:
   flutter_screenutil: ^5.6.0
   http: ^0.13.5
   google_fonts: ^3.0.1
+  provider: ^6.0.5
+  flutter_bloc: ^8.1.2
+  equatable: ^2.0.5
+  gap: ^2.0.1
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +54,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -68,6 +73,9 @@ flutter:
     - assets/fonts/
     - assets/images/
     - assets/teams/
+    - assets/teams/la_liga/
+    - assets/teams/prem/
+    - assets/teams/bundesLeague/
     - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
