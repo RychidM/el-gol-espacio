@@ -58,14 +58,14 @@ const List<MatchScoreInfo> laLigaMatches = [
       homeTeamScore: '0',
       awayTeamScore: '2',
       half: 'HT', time: '90:01'),
-  // MatchScoreInfo(
-  //     homeTeam: AppStrings.lSevilla,
-  //     awayTeam: AppStrings.lGranada,
-  //     homeTeamCrest: Assets.laLigaSevilla,
-  //     awayTeamCrest: Assets.laLigaGranada,
-  //     homeTeamScore: '3',
-  //     awayTeamScore: '3',
-  //     half: 'FT', time: '01:55'),
+  MatchScoreInfo(
+      homeTeam: AppStrings.lSevilla,
+      awayTeam: AppStrings.lGranada,
+      homeTeamCrest: Assets.laLigaSevilla,
+      awayTeamCrest: Assets.laLigaGranada,
+      homeTeamScore: '3',
+      awayTeamScore: '3',
+      half: 'FT', time: '01:55'),
   // MatchScoreInfo(
   //     homeTeam: AppStrings.lCelta,
   //     awayTeam: AppStrings.lSociedad,

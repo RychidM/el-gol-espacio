@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:livescore/bottom_navbar/bloc/BottomNavBar_bloc.dart';
 import 'package:livescore/bottom_navbar/bloc/bottom_navbar_state.dart';
 import 'package:livescore/resources/app_colors.dart';
 import 'package:livescore/resources/app_dimens.dart';
 import 'package:livescore/resources/app_font.dart';
 import 'package:livescore/resources/sample_data.dart';
 
+import 'bloc/bottom_nav_bar_bloc.dart';
 import 'bloc/bottom_navbar_event.dart';
 
 class LiveScoreBottomNavbar extends StatefulWidget {

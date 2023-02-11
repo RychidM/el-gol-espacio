@@ -80,7 +80,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Widget get _headerMsg {
     return Positioned(
-      top: AppDimens.lImageDimens + 30.h,
+      top: AppDimens.lImageDimens.h + 60.h,
       left: AppDimens.lPadding48.w,
       right: AppDimens.lPadding48.w,
       child: LivescoreText(
@@ -123,6 +123,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Widget get _signIn {
     return CustomButton(
+      height: 63.h,
       width: AppDimens.lButtonWidth,
       onTap: () => _showSignInBottomModal(context),
       child: LivescoreText(
@@ -135,7 +136,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Widget get _signUp {
     return InkWell(
-      onTap: (() => null),
+      onTap: (() {}),
       child: LivescoreText(
         text: AppStrings.lSignUp,
         color: AppColors.lGrey5,
@@ -232,6 +233,7 @@ _showSignInBottomModal(BuildContext context) {
                   child: Column(
                     children: [
                       CustomButton(
+                        height: 63.h,
                         onTap: () {
                           Navigator.pushReplacement(
                               context,

@@ -88,6 +88,7 @@ Positioned _continueAndSkipBtn(BuildContext context) {
     child: Column(
       children: [
         CustomButton(
+            height: 63.h,
             width: double.maxFinite,
             child: LivescoreText(
               text: AppStrings.lContinue,

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:livescore/generated/assets.dart';
@@ -24,7 +22,12 @@ class _MatchDetailsViewState extends State<MatchDetailsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image.asset(Assets.iconsArrowLeft, scale: 4),
+        leading: IconButton(
+          icon: Image.asset(Assets.iconsArrowLeft, scale: 4),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: LivescoreText(
             text: AppStrings.lEPL,
             fontSize: AppDimens.lSubTitle16,
@@ -35,9 +38,9 @@ class _MatchDetailsViewState extends State<MatchDetailsView> {
       ),
       body: Padding(
         padding: EdgeInsets.only(
-            left: AppDimens.lPadding20.w,
-            right: AppDimens.lPadding20.w,
-            top: AppDimens.lPadding10),
+            left: AppDimens.lPadding30.w,
+            right: AppDimens.lPadding30.w,
+            top: AppDimens.lPadding20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

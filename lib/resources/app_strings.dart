@@ -84,4 +84,7 @@ class AppStrings {
   static const lLevante = "Levante";
   static const lCelta = "Celta de Vigo";
   static const lSociedad = "Real Sociedad";
+  static const lSerieA = "Serie A";
+  static const lLeague1 = "League 1";
+  static const lBundesLiga = "BundesLiga";
 }
