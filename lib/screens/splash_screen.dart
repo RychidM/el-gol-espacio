@@ -279,7 +279,7 @@ Widget get _email {
       filled: true,
       fillColor: AppColors.lPrimaryColor,
       hintText: "Email",
-      hintStyle: GoogleFonts.sourceSansPro(
+      hintStyle: GoogleFonts.sourceSans3(
         fontSize: AppDimens.lTextFieldFont,
         color: AppColors.lGrey10,
       ),
@@ -303,7 +303,7 @@ Widget get _password {
       filled: true,
       fillColor: AppColors.lPrimaryColor,
       hintText: "Password",
-      hintStyle: GoogleFonts.sourceSansPro(
+      hintStyle: GoogleFonts.sourceSans3(
         fontSize: AppDimens.lTextFieldFont,
         color: AppColors.lGrey10,
       ),

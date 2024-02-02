@@ -28,7 +28,7 @@ class LivescoreText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.sourceSansPro(
+      style: GoogleFonts.sourceSans3(
         fontSize: fontSize,
         color: color,
         backgroundColor: backgroundColor,

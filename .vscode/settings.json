@@ -1,4 +1,9 @@
 {
     "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 500
+    "files.autoSaveDelay": 500,
+    "dart.flutterSdkPath": "/Users/Rychid/dev/flutter 3138/flutter",
+    "dart.flutterSdkPaths": ["/Users/Rychid/dev/flutter 3138/flutter/bin"],
+     "dart.sdkPaths": [
+       "/Users/Rychid/dev/flutter 3138/flutter/bin/cache/dart-sdk/bin"
+     ],
 }
