@@ -9,6 +9,7 @@ class Interests {
 }
 
 class MatchScoreInfo {
+  final String competition;
   final String homeTeam;
   final String awayTeam;
   final String homeTeamCrest;
@@ -25,5 +26,25 @@ class MatchScoreInfo {
       required this.awayTeamCrest,
       required this.homeTeamScore,
       required this.awayTeamScore,
-      required this.half, required this.time});
+      required this.half,
+      required this.time,
+      required this.competition});
+}
+
+class News {
+  String headline;
+  String story;
+  String date;
+  String time;
+  String mgUrl;
+  String source;
+
+  News({
+    required this.headline,
+    required this.story,
+    required this.date,
+    required this.mgUrl,
+    required this.time,
+    required this.source
+  });
 }

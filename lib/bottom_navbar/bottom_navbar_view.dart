@@ -24,7 +24,7 @@ class _LiveScoreBottomNavbarState extends State<LiveScoreBottomNavbar> {
     return BlocBuilder<BottomNavBarBloc, BottomNavBarState>(
         builder: (context, state) {
       return Scaffold(
-        backgroundColor: AppColors.lPrimaryColor,
+        backgroundColor: AppColors.lSecondaryColor,
         body: screens.elementAt(state.selectedIndex),
         bottomNavigationBar: BlocBuilder<BottomNavBarBloc, BottomNavBarState>(
             builder: (context, state) {

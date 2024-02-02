@@ -20,7 +20,7 @@ class AppStrings {
   static const lVolley = "Volleyball";
   static const lContinue = "Continue";
   static const lSkip = "Skip";
-  static const lLiveScore = "LiveScore";
+  static const lqueGolazo = "queGolazo";
   static const lBarcaUCL =
       "Throwback to Fc Barcelona's last champions league triumph";
   static const lLPoolUCL = "Liverpool UEFA Champion League Celebration";

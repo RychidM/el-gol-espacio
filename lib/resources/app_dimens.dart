@@ -5,6 +5,7 @@ class AppDimens {
   static const double lImageContainerDimens = 270.0;
   static const double lImageContainerDimens161 = 162.0;
   static const double lImageDimens = 400.0;
+  static double lSideMenuWidth = 288.w;
   static double lBottomSheetHeight = 459.0.h;
   static double lButtonHeight = 63.0.h;
   static double lButtonWidth = 199.0.w;

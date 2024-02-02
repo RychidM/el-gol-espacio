@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
-          title: 'el gol espacio',
+          title: 'queGolazo',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: Colors.blue,

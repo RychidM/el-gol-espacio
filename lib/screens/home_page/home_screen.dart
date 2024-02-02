@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -20,18 +21,89 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   var _selectedIndex = 0;
+  bool isMenuClosed = true;
+
+  // Animation controllers
+  late AnimationController _animationController;
+  late Animation<double> animation;
+  late Animation<double> scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 200))
+      ..addListener(() {
+        setState(() {});
+      });
+
+    animation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+          parent: _animationController, curve: Curves.fastOutSlowIn),
+    );
+    scaleAnimation = Tween<double>(begin: 1, end: .8).animate(
+      CurvedAnimation(
+          parent: _animationController, curve: Curves.fastOutSlowIn),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        AnimatedPositioned(
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.fastOutSlowIn,
+          left: isMenuClosed ? -AppDimens.lSideMenuWidth : 0,
+          width: AppDimens.lSideMenuWidth,
+          height: MediaQuery.of(context).size.height,
+          child: Container(
+            height: double.maxFinite,
+            width: AppDimens.lSideMenuWidth,
+            // color: AppColors.lBlue,
+            child: Padding(
+              padding: const EdgeInsets.all(50.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children:
+                    List.generate(5, (index) => LivescoreText(text: 'League')),
+              ),
+            ),
+          ),
+        ),
+        //
+        // Transform(
+        //   transform: Matrix4.identity()
+        //     ..setEntry(3, 2, 0.001)
+        //     ..rotateY(animation.value - 30 * animation.value * pi / 120),
+        //   child:
+        Transform.translate(
+          offset: Offset(animation.value * 200.w, 0),
+          child: Transform.scale(
+            scale: scaleAnimation.value,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(!isMenuClosed ? 20 : 0),
+              child: _mainBody(),
+            ),
+          ),
+        ),
+        // ),
+      ],
+    );
+  }
+
+  Scaffold _mainBody() {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: _menuTitleWidget,
         toolbarHeight: AppDimens.lButtonHeight + 20,
         title: LivescoreText(
-          text: AppStrings.lLiveScore,
+          text: AppStrings.lqueGolazo,
           fontSize: AppDimens.lSubTitle1,
         ),
         actions: [
@@ -39,80 +111,99 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
         elevation: 0,
       ),
-      backgroundColor: AppColors.lPrimaryColor,
-      body: Stack(
+      // backgroundColor: AppColors.lPrimaryColor,
+      body: _body,
+    );
+  }
+
+  Widget get _body {
+    return SingleChildScrollView(
+      child: Column(
         children: [
-          Image.asset(Assets.imagesPatternBg, color: Colors.red),
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                _latestNewsBanner(),
-                Gap(AppDimens.lPadding20.h),
-                Padding(
-                  padding: EdgeInsets.only(left: AppDimens.lPadding20.w),
-                  child: SizedBox(
-                    height: 45.h,
-                    child: ListView.builder(
-                        itemCount: top5Leagues.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return _interestContainer(index);
-                        }),
-                  ),
-                ),
-                Gap(AppDimens.lPadding20.h),
-                _leagueResultsTitle(),
-                Gap(AppDimens.lPadding20.h),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: AppDimens.lPadding20.w),
-                  child: Column(
-                    children: laLigaMatches
-                        .map((l) => GestureDetector(
-                              onTap: () =>
-                                  _navigateToMatchDetailsView(context, l),
-                              child: MatchScoreContainer(
-                                homeTeamCrest: l.homeTeamCrest,
-                                awayTeamCrest: l.awayTeamCrest,
-                                homeTeamName: l.homeTeam,
-                                awayTeamName: l.awayTeam,
-                                homeTeamScore: l.homeTeamScore,
-                                awayTeamScore: l.awayTeamScore,
-                                matchHalf: l.half,
-                              ),
-                            ))
-                        .toList(),
-                  ),
-                ),
-                // _leagueResultsTitle(
-                //     flag: Assets.imagesEngland,
-                //     country: AppStrings.lEngland,
-                //     league: AppStrings.lEPL),
-                // Gap(AppDimens.lPadding20.h),
-                // Padding(
-                //   padding: EdgeInsets.symmetric(horizontal: AppDimens.lPadding20.w),
-                //   child: Column(
-                //     children: premMatches
-                //         .map((l) => GestureDetector(
-                //               onTap: () => _navigateToMatchDetailsView(context, l),
-                //               child: MatchScoreContainer(
-                //                 homeTeamCrest: l.homeTeamCrest,
-                //                 awayTeamCrest: l.awayTeamCrest,
-                //                 homeTeamName: l.homeTeam,
-                //                 awayTeamName: l.awayTeam,
-                //                 homeTeamScore: l.homeTeamScore,
-                //                 awayTeamScore: l.awayTeamScore,
-                //                 matchHalf: l.half,
-                //               ),
-                //             ))
-                //         .toList(),
-                //   ),
-                // )
-              ],
+          Gap(AppDimens.lPadding20.h),
+          _latestNewsBanner(),
+          Gap(AppDimens.lPadding20.h),
+          Padding(
+            padding: EdgeInsets.only(left: AppDimens.lPadding20.w),
+            child: SizedBox(
+              height: 45.h,
+              child: ListView.builder(
+                  itemCount: top5Leagues.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return _interestContainer(index);
+                  }),
             ),
           ),
+          Gap(AppDimens.lPadding20.h),
+          _getCurrentTabMatchDetails(_selectedIndex),
         ],
       ),
+    );
+  }
+
+  Widget _premMatches(BuildContext context) {
+    return Column(
+      children: [
+        _leagueResultsTitle(
+            flag: Assets.imagesPremWhite,
+            country: AppStrings.lEngland,
+            league: AppStrings.lEPL),
+        Gap(AppDimens.lPadding20.h),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: AppDimens.lPadding20.w),
+          child: Column(
+            children: premMatches
+                .asMap()
+                .entries
+                .map((l) => GestureDetector(
+                      onTap: () =>
+                          _navigateToMatchDetailsView(context, l.value),
+                      child: MatchScoreContainer(
+                        homeTeamCrest: l.value.homeTeamCrest,
+                        awayTeamCrest: l.value.awayTeamCrest,
+                        homeTeamName: l.value.homeTeam,
+                        awayTeamName: l.value.awayTeam,
+                        homeTeamScore: l.value.homeTeamScore,
+                        awayTeamScore: l.value.awayTeamScore,
+                        matchHalf: l.value.half,
+                      ),
+                    ))
+                .toList(),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _laLigaMatches(BuildContext context) {
+    return Column(
+      children: [
+        _leagueResultsTitle(),
+        Gap(AppDimens.lPadding20.h),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: AppDimens.lPadding20.w),
+          child: Column(
+            children: laLigaMatches
+                .asMap()
+                .entries
+                .map((l) => GestureDetector(
+                      onTap: () =>
+                          _navigateToMatchDetailsView(context, l.value),
+                      child: MatchScoreContainer(
+                        homeTeamCrest: l.value.homeTeamCrest,
+                        awayTeamCrest: l.value.awayTeamCrest,
+                        homeTeamName: l.value.homeTeam,
+                        awayTeamName: l.value.awayTeam,
+                        homeTeamScore: l.value.homeTeamScore,
+                        awayTeamScore: l.value.awayTeamScore,
+                        matchHalf: l.value.half,
+                      ),
+                    ))
+                .toList(),
+          ),
+        ),
+      ],
     );
   }
 
@@ -235,28 +326,24 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Padding get _actionButtons {
-    return Padding(
-      padding: EdgeInsets.only(right: AppDimens.lPadding20.w + 5.w),
-      child: Row(
-        children: [
-          Image.asset(
-            Assets.iconsSearch,
-            scale: 3,
-            color: AppColors.lWhite,
-          ),
-          SizedBox(width: AppDimens.lPadding20.w),
-          Image.asset(Assets.iconsNotification, scale: 4),
-        ],
-      ),
-    );
+  Widget get _actionButtons {
+    return Image.asset(Assets.iconsNotification, scale: 4);
   }
 
   Padding get _menuTitleWidget {
     return Padding(
       padding: EdgeInsets.only(left: AppDimens.lPadding20.w + 5.w),
       child: GestureDetector(
-          onTap: () {},
+          onTap: () {
+            if (isMenuClosed) {
+              _animationController.forward();
+            } else {
+              _animationController.reverse();
+            }
+            setState(() {
+              isMenuClosed = !isMenuClosed;
+            });
+          },
           child: Image.asset(
             Assets.imagesFootball,
             scale: 9,
@@ -299,6 +386,21 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+
+  _getCurrentTabMatchDetails(int index) {
+    dynamic currentTabMatch;
+
+    Map<int, dynamic> views = {
+      0: _laLigaMatches(context),
+      1: _premMatches(context),
+      2: _laLigaMatches(context),
+      3: _premMatches(context),
+      4: _laLigaMatches(context),
+      5: _laLigaMatches(context),
+    };
+    currentTabMatch = views[index] ?? _laLigaMatches(context);
+    return currentTabMatch;
   }
 }
 
